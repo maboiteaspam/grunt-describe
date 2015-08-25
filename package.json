@@ -1,30 +1,31 @@
 {
-    "name": "grunt-describe",
-    "version": "0.0.1",
-    "description": "API to describe Grunt tasks configuration.\n\n",
-    "main": "main.js",
-    "scripts": {
-        "lint": "eslint"
-    },
-    "bin": {},
-    "keywords": [
-        "grunt",
-        "task",
-        "configuration",
-        "describe",
-        "helper"
-    ],
-    "author": "maboiteaspam",
-    "license": "wtf",
-    "homepage": "https://github.com/maboiteaspam",
-    "repository": {
-        "url": "https://github.com/maboiteaspam/grunt-describe"
-    },
-    "bugs": {
-        "url": "https://github.com/maboiteaspam/grunt-describe/issues"
-    },
-    "dependencies": [
-        "minimist",
-        "showusage"
-    ]
+  "name": "grunt-describe",
+  "version": "0.0.1",
+  "description": "API to describe Grunt tasks configuration.",
+  "main": "main.js",
+  "scripts": {
+    "lint": "eslint"
+  },
+  "bin": {},
+  "keywords": [
+    "grunt",
+    "task",
+    "configuration",
+    "describe",
+    "helper"
+  ],
+  "author": "maboiteaspam",
+  "license": "wtf",
+  "homepage": "https://github.com/maboiteaspam",
+  "repository": {
+    "url": "https://github.com/maboiteaspam/grunt-describe"
+  },
+  "bugs": {
+    "url": "https://github.com/maboiteaspam/grunt-describe/issues"
+  },
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "minimist": "^1.2.0",
+    "showusage": "file:../showusage"
+  }
 }
