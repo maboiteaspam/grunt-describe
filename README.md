@@ -7,14 +7,30 @@ API to describe Grunt tasks configuration.
 Run the following commands to download and install the application:
 
 ```sh
-$  clone https://github.com/maboiteaspam/grunt-describe grunt-describe
-$ cd grunt-describe
-$ npm install
+$ npm i maboiteaspam/grunt-describe --save
 ```
+__to pbe published__
 
 ## Documentation
 
+A sample example for a regular `Gruntfile.js` should look likes this :
 
+```js
+var minimist = require('minimist')
+var grunt = require('grunt')
+var gruntDescribe = require('grunt-describe')
+
+var pkg = require('./package.json')
+
+grunt.initConfig([...]);
+
+if (minimist.describe) {
+    gruntDescribe(grunt, pkg, minimist.describe)
+} else {
+    grunt.registerTask('default', [...])
+}
+
+```
 
 
 ## How to contribute
