@@ -1,7 +1,7 @@
 
 // module grunt-describe by maboiteaspam
 
-var pkg = require('package.json');
+var pkg = require('./package.json');
 
 module.exports = describeGrunt
 
