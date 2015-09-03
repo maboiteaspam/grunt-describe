@@ -54,6 +54,9 @@ function describeGrunt(grunt, pkg, keyword){
         console.log(fence('   ', 'Alias of'))
         console.log(fence('    - ', chalk.white(getAliasedTasks(task).join('\n'))))
         console.log('')
+      } else {
+        // check about this case
+        //console.log(name)
       }
     })
   } else {
