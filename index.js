@@ -46,13 +46,15 @@ function describeGrunt(grunt, pkg, keyword){
     var topTask = grunt.task._tasks['default'];
     getAliasedTasks(topTask).forEach(function(name){
       var task = grunt.task._tasks[name];
-      var description = grunt.config.get('run.descriptions.'+name) || '';
-      console.log(chalk.magenta(' - ') + chalk.white.bold(name.toUpperCase()))
-      console.log(fence('   ', removeFrontspace(description)))
-      console.log('')
-      console.log(fence('   ', 'Alias of'))
-      console.log(fence('    - ', chalk.white(getAliasedTasks(task).join('\n'))))
-      console.log('')
+      if (task) {
+        var description = grunt.config.get('run.descriptions.'+name) || '';
+        console.log(chalk.magenta(' - ') + chalk.white.bold(name.toUpperCase()))
+        console.log(fence('   ', removeFrontspace(description)))
+        console.log('')
+        console.log(fence('   ', 'Alias of'))
+        console.log(fence('    - ', chalk.white(getAliasedTasks(task).join('\n'))))
+        console.log('')
+      }
     })
   } else {
     console.log('Tasks details for ' + chalk.white(keyword) + ':')
