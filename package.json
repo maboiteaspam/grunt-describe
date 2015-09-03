@@ -26,6 +26,6 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "minimist": "^1.2.0",
-    "showusage": "file:../showusage"
+    "underscore": "^1.8.3"
   }
 }
