@@ -43,17 +43,19 @@ function describeGrunt(grunt, pkg, keyword){
     console.log('Tasks configured for this module:')
     console.log('')
 
-    var topTask = grunt.task._tasks['default'];
-    getAliasedTasks(topTask).forEach(function(name){
+    Object.keys(grunt.task._tasks).forEach(function(name){
       var task = grunt.task._tasks[name];
+      var aliased = getAliasedTasks(task);
       if (task) {
-        var description = grunt.config.get('run.descriptions.'+name) || '';
+        var description = grunt.config.get('run.descriptions.'+name) || 'no description for this task.';
         console.log(chalk.magenta(' - ') + chalk.white.bold(name.toUpperCase()))
         console.log(fence('   ', removeFrontspace(description)))
         console.log('')
-        console.log(fence('   ', 'Alias of'))
-        console.log(fence('    - ', chalk.white(getAliasedTasks(task).join('\n'))))
-        console.log('')
+        if (aliased.length) {
+          console.log(fence('   ', 'Alias of'))
+          console.log(fence('    - ', chalk.white(aliased.join('\n'))))
+          console.log('')
+        }
       } else {
         // check about this case
         //console.log(name)
@@ -162,9 +164,12 @@ function getAliasedTasks (task) {
       .replace(/\s+task[s]?[.]$/, '')
       .split(',')
       .forEach(function (aliased) {
-        aliasedTasks.push(
-          aliased.replace(/\s+$/, '').replace(/^\s+/, '').replace(/"/g, '')
-        )
+        aliased = aliased.replace(/\s+$/, '').replace(/^\s+/, '').replace(/"/g, '')
+        if (aliased) {
+          aliasedTasks.push(
+            aliased
+          )
+        }
       });
   }
   return aliasedTasks
